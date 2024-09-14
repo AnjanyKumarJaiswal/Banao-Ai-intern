@@ -51,12 +51,7 @@ Before you begin, ensure you have the following installed:
 - `app/`: Contains the main application code.
 - `app/scripts/`: Contains scripts for setting up and running the application.
 - `requirements.txt`: Lists the Python dependencies needed for the project.
-- `watcher.py`: Script to monitor file changes and restart the process automatically.
-
-## Additional Information
-
-For detailed information on the implementation and usage of the project components, please refer to the comments and documentation within the source code files.
-
+- `main.py`: Main Script of the application 
 
 ---
 
