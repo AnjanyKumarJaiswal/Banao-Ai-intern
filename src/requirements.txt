@@ -1,0 +1,6 @@
+langgraph 
+transformers
+torch 
+python-dotenv
+fastapi
+uvicorn
