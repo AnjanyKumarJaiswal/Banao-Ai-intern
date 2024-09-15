@@ -12,11 +12,8 @@ class LangGraphWorFlow:
     def execute_graph(self,query):
         workflow.add_node("PlanAgent" , plan_agent.split_user_query)
         workflow.add_node("ToolAgent",tool_agent.final_feedback)
-        workflow.add_node("PlanAgentRefine", plan_agent.modify_subtask)
         
         workflow.add_edge("PlanAgent", "ToolAgent")
-        workflow.add_edge("ToolAgent", "PlanAgentRefine")
-        workflow.add_edge("PlanAgentRefine", "ToolAgent")
         
         workflow.set_entry_point("PlanAgent")
         workflow.set_finish_point("ToolAgent")

@@ -4,15 +4,34 @@ import random
 
 class PlanAgent:
     def split_user_query(self,query):
+        print("query received for subtasks")
         prompt = f"Split the following task into 4 subtasks: {query}."
         subtasks_response = generate_response(prompt)
-        subtasks_string = subtasks_response[0] if isinstance(subtasks_response, list) else subtasks_response
-        subtasks = re.split(r'\*\*Subtask \d+:\*\*', subtasks_string)
-        subtasks = [subtask.strip() for subtask in subtasks if subtask.strip()]
-    
+        print("Before Splitting the LIST",subtasks_response)
+        if not subtasks_response:
+            print("No Response Generated from the Model")
+                
+        # subtasks_string = subtasks_response[0] if isinstance(subtasks_response, list) else subtasks_response
+        # subtasks_list = subtasks_response.tolist() if hasattr(subtasks_response, 'tolist') else subtasks_response
+        # subtasks = re.split(r'\*\*\d+\.\s*\*\*', subtasks_string)
+        
+        if isinstance(subtasks_response,list):
+            subtasks_list = subtasks_response
+        else:
+            subtasks_list = subtasks_response.splitlines()
+        
+        subtasks = [subtask.strip() for subtask in subtasks_list if subtask.strip()]
+        # print("After splitting subtask words", subtasks)
+        
+        # subtasks = [subtask.strip() for subtask in subtasks if subtask.strip()]
+        print("After Splitting the LIST",subtasks)
+        
+        
         return subtasks
     
     def modify_subtask(self, subtasks):
+        if len(subtasks) == 0:
+            return print("SubTask is zero")
         index = random.randint(0, len(subtasks) - 1)
         subtasks[index] += " (modified)"
         return subtasks

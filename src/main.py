@@ -1,19 +1,27 @@
 from models.langgraph_integration import LangGraphWorFlow
 from fastapi import FastAPI, Query
 
-
 app = FastAPI()
 
-workflow = LangGraphWorFlow()
+
+@app.get("/")
+async def test():
+    return {"msg":"This server is working"}
+
 
 @app.get("/execute")
-def main(query: str):
-    app = workflow.execute_graph(query=query)
-    result = app.invoke(query)
-    for res in result:
-        return {"results": res}
+async def execute(query:str):
+    print("Query Received!!",query)
+    workflow =  LangGraphWorFlow()
+    results = workflow.execute_graph(query=query).invoke(query)
+    return results
+    # try:
+    #     results = workflow.execute_graph(query=query).invoke(query)
+    #     return results
+    # except Exception as e:
+    #     return {"error": str(e)}
     
 if __name__ =="__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="localhost", port=8000)
     
