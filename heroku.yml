@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-build:
-  docker:
-    web: Dockerfile
-  config:
-    PORT: 8000
 
-run:
-  web: uvicorn main:app --host 0.0.0.0 --port ${PORT}
-=======
 build:
   docker:
     web: dockerfile
@@ -16,4 +7,3 @@ build:
 
 run:
   web: uvicorn main:app --host 0.0.0.0 --port ${PORT}
->>>>>>> dd6096c2cca70188942eae3e2da232124f0af982
