@@ -10,10 +10,6 @@ class PlanAgent:
         print("Before Splitting the LIST",subtasks_response)
         if not subtasks_response:
             print("No Response Generated from the Model")
-                
-        # subtasks_string = subtasks_response[0] if isinstance(subtasks_response, list) else subtasks_response
-        # subtasks_list = subtasks_response.tolist() if hasattr(subtasks_response, 'tolist') else subtasks_response
-        # subtasks = re.split(r'\*\*\d+\.\s*\*\*', subtasks_string)
         
         if isinstance(subtasks_response,list):
             subtasks_list = subtasks_response
@@ -21,9 +17,6 @@ class PlanAgent:
             subtasks_list = subtasks_response.splitlines()
         
         subtasks = [subtask.strip() for subtask in subtasks_list if subtask.strip()]
-        # print("After splitting subtask words", subtasks)
-        
-        # subtasks = [subtask.strip() for subtask in subtasks if subtask.strip()]
         print("After Splitting the LIST",subtasks)
         
         
