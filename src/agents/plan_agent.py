@@ -4,8 +4,8 @@ import random
 
 class PlanAgent:
     def split_user_query(self,query):
-        print("query received for subtasks")
-        prompt = f"Split the following task into 4 subtasks: {query}."
+        print("\nQuery has been received by Plan Agent..........")
+        prompt = f"Split the following task into 4 subtasks but only in one line each: {query}."
         subtasks_response = generate_response(prompt)
         print("Before Splitting the LIST",subtasks_response)
         if not subtasks_response:

@@ -2,7 +2,7 @@ from models.llm_model import generate_response
 
 class ToolAgent:
     def final_feedback(self,subtasks):
-        print("to generate final output subtasks received :)")
+        print("\nQuery has been received by Tool Agent.....")
         results = []
         for subtask in subtasks[1:]:
             print(f"Processing subtask: {subtask}")
