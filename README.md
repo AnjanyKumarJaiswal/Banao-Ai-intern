@@ -1,4 +1,4 @@
-# QueryMaster
+# QueryHandler
 
 ## Overview
 
