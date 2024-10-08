@@ -1,4 +1,4 @@
-# Banao AI Intern Task
+# QueryMaster
 
 ## Overview
 
